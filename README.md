@@ -150,7 +150,7 @@ Jenkins的特征：
 
 ### 持续集成流程
 
-![image-20210702052044343](D:\code\java\Jenkins\img\4.png)
+![image-20210702052044343](img/4.png)
 
 1. 开发人员每天进行代码提交到 Git仓库
 2. Jenkins 作为持续集成工具，使用 Git 工具到 Git仓库 拉取代码到集成服务器，再配合 JDK、Maven 等软件完全代码编译，代码测试、审查和打包等工作，在这个过程中有一步出错，都要重新执行整个流程
@@ -174,10 +174,28 @@ docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
 
 我们可以利用 Role-based Authorization strategy 插件来管理 Jenkins 用户权限
 
-<img src="D:\code\java\Jenkins\img\5.png" alt="image-20210703044604325" style="zoom:150%;" />
+<img src="img/5.png" alt="image-20210703044604325" style="zoom:150%;" />
 
 进入`Manage Jenkins`的`Configure Global Security`，将授权策略切换为`Role-Based Strategy`
 
 之后即可在系统管理页面进入`Manage and Assign Roles`里创建角色与用户。
 
 当然也可以使用项目矩阵授权策略也进行权限管理。
+
+## 5. Jenkins 凭证管理
+
+凭据可以用在存储需要密文保护的数据库密码，Gitlab密码信息、Docker私有仓库密码等，以便 Jenkins 可以和这些第三方的应用进行交互
+
+要在 Jenkins 使用凭证管理，需要安装`Credentials Binding`插件，安装后就会在`Manage Jenkins`里出现`Manage Credentials`菜单，在这里管理所有凭证
+
+可以添加的凭证有以下6种
+
+<img src="img/6.png" alt="image-20210703051938423" style="zoom:125%;" />
+
+* Username with password: 用户名与密码
+* GitHub App: Github身份验证
+* SSH Username with private key: 使用SSH用户和密钥
+* Secret file: 需要保密的文本文件，使用时 Jenkins 会将文件复制到一个临时目录中，再将文件路径设置到一个变量中，等构建结束后，所复制的 Secret file 就会被删除
+* Secret text: 需要保存的一个加密的文本串，例如 Github 的 api token
+* Certificate: 通过上传证书文件的方式
+
