@@ -179,3 +179,5 @@ docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
 进入`Manage Jenkins`的`Configure Global Security`，将授权策略切换为`Role-Based Strategy`
 
 之后即可在系统管理页面进入`Manage and Assign Roles`里创建角色与用户。
+
+当然也可以使用项目矩阵授权策略也进行权限管理。
