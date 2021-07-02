@@ -155,3 +155,10 @@ Jenkins的特征：
 1. 开发人员每天进行代码提交到 Git仓库
 2. Jenkins 作为持续集成工具，使用 Git 工具到 Git仓库 拉取代码到集成服务器，再配合 JDK、Maven 等软件完全代码编译，代码测试、审查和打包等工作，在这个过程中有一步出错，都要重新执行整个流程
 3. 最后，Jenkins 把生成的 jar 或 war 包分发到测试服务器或生产服务器，测试人员和用户即可访问应用
+
+## 3. Jenkins 安装
+
+```basic
+docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins
+```
+
