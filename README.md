@@ -199,3 +199,5 @@ docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
 * Secret text: 需要保存的一个加密的文本串，例如 Github 的 api token
 * Certificate: 通过上传证书文件的方式
 
+s
+
