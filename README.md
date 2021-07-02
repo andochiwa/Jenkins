@@ -170,3 +170,12 @@ docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins
 docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
 ```
 
+## 4. Jenkins 用户权限管理
+
+我们可以利用 Role-based Authorization strategy 插件来管理 Jenkins 用户权限
+
+<img src="D:\code\java\Jenkins\img\5.png" alt="image-20210703044604325" style="zoom:150%;" />
+
+进入`Manage Jenkins`的`Configure Global Security`，将授权策略切换为`Role-Based Strategy`
+
+之后即可在系统管理页面进入`Manage and Assign Roles`里创建角色与用户。
