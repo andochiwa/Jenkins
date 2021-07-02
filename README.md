@@ -158,7 +158,15 @@ Jenkins的特征：
 
 ## 3. Jenkins 安装
 
+全新的
+
 ```basic
 docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins
+```
+
+功能齐全的
+
+```bash
+docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
 ```
 
