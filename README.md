@@ -158,16 +158,10 @@ Jenkins的特征：
 
 ## 3. Jenkins 安装
 
-全新的
-
-```basic
-docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins
-```
-
-功能齐全的
+**注意**：预先挂载好maven，容器内不自带maven，安装起来很麻烦。
 
 ```bash
-docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
+docker run -p 8777:8080 -p 50000:50000 -v MAVEN_PATH:CONTAINERPATH --name jenkins -dit jenkins/jenkins
 ```
 
 ## 4. Jenkins 用户权限管理
@@ -199,5 +193,5 @@ docker run -p 8777:8080 -p 50000:50000 --name jenkins -dit jenkins/jenkins
 * Secret text: 需要保存的一个加密的文本串，例如 Github 的 api token
 * Certificate: 通过上传证书文件的方式
 
-s
+
 
