@@ -263,10 +263,37 @@ Pipeline 简单来说就是一套运行在 Jenkins 上的工作流框架，将�
 
 可扩展：Pipeline插件支持其 DSL 的自定义扩展，以及与其他插件集成的多个选项
 
-
-
 3. 创建 Jenkins Pipeline 方式
 
 * Pipeline 脚本是由 **Groovy** 语言实现的，但是我们没必要去单独学习
 * Pipeline 支持两种语法：**Declarative**（声明式）和 **Scripted Pipeline**（脚本式）语法
 * Pipeline也有两种创建方法：可以直接在 Jenkins 的 Web UI 界面中输入脚本，也可以通过创建一个 Jenkinsfile 脚本文件放入项目源码中
+
+### 构建并发布到 Tomcat
+
+创建 Pipeline 项目，然后编写脚本构建即可
+
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('pull') {
+            steps {
+                git 'https://github.com/andochiwa/Jenkins.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh '/usr/local/maven/bin/mvn -f web-demo/pom.xml clean package'
+            }
+        }
+        stage('deploy') {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: '2308a5c6-9839-42a0-80bb-88708d690641', path: '', url: 'http://xxx:8080/web-demo-1.0-SNAPSHOT/')], contextPath: null, war: 'web-demo/target/*.war'
+            }
+        }
+    }
+}
+
+```
