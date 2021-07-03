@@ -195,3 +195,16 @@ docker run -p 8777:8080 -p 50000:50000 -v MAVEN_PATH:CONTAINERPATH --name jenkin
 
 
 
+# Jenkins 构建项目
+
+## Jenkins 构建的项目类型
+
+Jenkins 中自动构建项目的类型有很多，常用的有以下三种
+
+1. 自由风格软件项目（FreeStyle Project）
+2. Maven项目（Maven Project）
+3. 流水线项目（Pipeline Project）
+
+每种类型的构建都可以完成一样的构建过程与结果，只是在操作方式和灵活度等方面有区别，在实际的开发中可以根据自己的需求和习惯来进行选择
+
+## 构建 Maven 项目并且部署到 Tomcat 服务器
