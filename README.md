@@ -290,10 +290,13 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                deploy adapters: [tomcat9(credentialsId: '2308a5c6-9839-42a0-80bb-88708d690641', path: '', url: 'http://xxx:8080/web-demo-1.0-SNAPSHOT/')], contextPath: null, war: 'web-demo/target/*.war'
+                deploy adapters: [tomcat9(credentialsId: '2308a5c6-9839-42a0-80bb-88708d690641', path: '', url: 'http://xxx:8080')], contextPath: null, war: 'web-demo/target/*.war'
             }
         }
     }
 }
-
 ```
+
+### 管理 Jenkinsfile 脚本文件
+
+可以通过 Jenkinsfile 脚本文件代替 Pipeline 的Ui界面输入，只需push到仓库中拉取，然后在 Pipeline 配置内选中即可
