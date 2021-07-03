@@ -208,3 +208,31 @@ Jenkins 中自动构建项目的类型有很多，常用的有以下三种
 每种类型的构建都可以完成一样的构建过程与结果，只是在操作方式和灵活度等方面有区别，在实际的开发中可以根据自己的需求和习惯来进行选择
 
 ## 构建 Maven 项目并且部署到 Tomcat 服务器
+
+大致过程: 拉取代码 -> 编译、打包 -> 部署
+
+> 拉取代码
+
+1. 创建一个项目
+2. 添加源码管理，从github中拉取代码
+
+> 编译打包
+
+构建 -> 添加构建步骤 -> Maven命令直接构建  或者用shell命令构建，需要注意shell命令时的maven路径
+
+> 部署
+
+把项目部署到远程Tomcat里面
+
+1. 安装`Deploy to container`插件
+
+jenkins 本身无法实现远程部署到Tomcat的功能，需要安装插件实现
+
+> 注意：需要先添加tomcat用户，简易设置流程如下：
+>
+> 1. 修改 tomcat 的 conf 目录下的 tomcat-users.xml 文件，添加角色和用户
+> 2. 将 tomcat 的 webapps/manager/META-INF 的 context.xml 文件内的 
+>    \<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /\> 注释掉，或者自行写匹配规则
+
+2. 添加 Tomcat 用户凭证
+3. 增加构建后操作步骤 -> Deploy war/ear to a container
