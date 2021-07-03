@@ -236,3 +236,9 @@ jenkins 本身无法实现远程部署到Tomcat的功能，需要安装插件实
 
 2. 添加 Tomcat 用户凭证
 3. 增加构建后操作步骤 -> Deploy war/ear to a container
+
+## Maven项目的持续集成
+
+1. 修改源码并提交到 github
+2. 在 Jenkins 中重新构建
+3. 访问 Tomcat

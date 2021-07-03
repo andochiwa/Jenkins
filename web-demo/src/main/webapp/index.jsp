@@ -9,5 +9,8 @@
 </h1>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
+<br/>
+
+<h1>如果看到这里，说明持续集成成功啦</h1>
 </body>
 </html>
