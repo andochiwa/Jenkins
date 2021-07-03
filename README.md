@@ -237,8 +237,36 @@ jenkins 本身无法实现远程部署到Tomcat的功能，需要安装插件实
 2. 添加 Tomcat 用户凭证
 3. 增加构建后操作步骤 -> Deploy war/ear to a container
 
-## Maven项目的持续集成
+### Maven项目的持续集成
 
 1. 修改源码并提交到 github
 2. 在 Jenkins 中重新构建
 3. 访问 Tomcat
+
+## Pipeline 流水线项目构建
+
+### Pipeline 简介
+
+1. Pipeline 概念
+
+Pipeline 简单来说就是一套运行在 Jenkins 上的工作流框架，将原来独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂流程编排和可视化的工作
+
+2. Pipeline 的优点
+
+代码：Pipeline 以代码的的形式实现，通常被检入源代码控制，使团队能够编辑，审查和迭代其传送流程
+
+持久：无论是计划内的还是计划外的服务器重启，Pipeline 都是可恢复的
+
+可停止：Pipeline 可接收交互式输入，以确定是否继续执行Pipeline
+
+多功能：Pipeline支持现实世界中复杂的持续交付要求。它支持 fork/join、循环执行，并行执行任务的功能
+
+可扩展：Pipeline插件支持其 DSL 的自定义扩展，以及与其他插件集成的多个选项
+
+
+
+3. 创建 Jenkins Pipeline 方式
+
+* Pipeline 脚本是由 **Groovy** 语言实现的，但是我们没必要去单独学习
+* Pipeline 支持两种语法：**Declarative**（声明式）和 **Scripted Pipeline**（脚本式）语法
+* Pipeline也有两种创建方法：可以直接在 Jenkins 的 Web UI 界面中输入脚本，也可以通过创建一个 Jenkinsfile 脚本文件放入项目源码中
