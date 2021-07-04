@@ -335,3 +335,11 @@ Jenkins 内置4种构建触发器
 2. 在 Pipeline 脚本文件中，用 ${} 表达式来注入文件内容
 3. 创建一个分支
 4. 构建时输入此分支名称
+
+### 配置邮箱服务器发送构建结果
+
+1. 安装`Email Extension Template`插件
+2. Manage Jenkins -> Configure System 设置邮箱相关参数
+3. Jenkins Location 处设置系统管理员（发件人）邮箱
+4. Extended E-mail Notification 处设置邮箱参数
+5. 邮件通知 处设置邮箱参数，并测试
