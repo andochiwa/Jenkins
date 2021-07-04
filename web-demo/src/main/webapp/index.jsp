@@ -15,5 +15,6 @@
 <h1>如果看到这里，说明pipeline也成功啦</h1>
 <h1>如果看到这里，说明Jenkinsfile也成功啦</h1>
 <h1>如果看到这里，说明轮询SCM构建也成功啦</h1>
+<h1>如果看到这里，说明Github webhooks构建也成功啦</h1>
 </body>
 </html>
