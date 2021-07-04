@@ -317,3 +317,10 @@ Jenkins 内置4种构建触发器
 ## Git hook 自动触发构建
 
 在 Jenkins 的内置构建触发器中，轮询SCM可以实现Github代码更新，项目自动构建。但是该方案性能并不好，当源码很大时，需要去扫描整个源码。我们可以利用 Github 的 webhook 实现代码push到仓库时，立即触发项目自动构建
+
+步骤：
+
+1. 进入 Jenkins 的系统管理 => 系统配置
+2. 在 Github 中选高级，然后选覆盖 Hook URL => 为 Github 指定另外一个 Hook URL，将 URL 地址复制并保存设置
+3. 进入 Github 仓库，选setting => Webhooks => Add webhook，将 URL 地址复制到 Payload URL内，另外可选感兴趣的事件
+4. 回到 Jenkins 项目，配置构建触发器选 Github hook 触发即可
