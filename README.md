@@ -300,3 +300,17 @@ pipeline {
 ### 管理 Jenkinsfile 脚本文件
 
 可以通过 Jenkinsfile 脚本文件代替 Pipeline 的Ui界面输入，只需push到仓库中拉取，然后在 Pipeline 配置内选中即可
+
+## Jenkins 构建触发器
+
+### 常用的构建触发器
+
+Jenkins 内置4种构建触发器
+
+1. 触发远程构建
+2. 其他工程构建后触发（Build after other projects are build）
+3. 定时构建（Build periodically）
+4. 轮询SCM（Poll SCM）
+
+> 触发远程构建
+
