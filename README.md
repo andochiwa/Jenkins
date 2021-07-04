@@ -343,3 +343,18 @@ Jenkins 内置4种构建触发器
 3. Jenkins Location 处设置系统管理员（发件人）邮箱
 4. Extended E-mail Notification 处设置邮箱参数
 5. 邮件通知 处设置邮箱参数，并测试
+6. 设置邮件模板（找一个），放到仓库主目录下
+7. 往脚本添加以下内容
+
+```groovy
+post {
+    always {
+        emailext(
+            subject: '构建通知：${PROJECT_NAME} - Build # ${BUILD_NUMBER} - ${BUILD_STATUS}!',
+            body: '${FILE,path="email.html"}',
+            to: '${email}'
+        )
+    }
+}
+```
+
