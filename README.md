@@ -312,9 +312,7 @@ Jenkins 内置4种构建触发器
 3. 定时构建（Build periodically）
 4. 轮询SCM（Poll SCM）
 
-
-
-## Git hook 自动触发构建
+### Git hook 自动触发构建
 
 在 Jenkins 的内置构建触发器中，轮询SCM可以实现Github代码更新，项目自动构建。但是该方案性能并不好，当源码很大时，需要去扫描整个源码。我们可以利用 Github 的 webhook 实现代码push到仓库时，立即触发项目自动构建
 
@@ -324,3 +322,16 @@ Jenkins 内置4种构建触发器
 2. 在 Github 中选高级，然后选覆盖 Hook URL => 为 Github 指定另外一个 Hook URL，将 URL 地址复制并保存设置
 3. 进入 Github 仓库，选setting => Webhooks => Add webhook，将 URL 地址复制到 Payload URL内，另外可选感兴趣的事件
 4. 回到 Jenkins 项目，配置构建触发器选 Github hook 触发即可
+
+### Jenkins 参数化构建
+
+有时在项目构建的过程中，我们需要根据用户的动态输入一些参数，从而影响整个构建结果，这时我们可以使用参数化构建
+
+此项目演示通过分支名称来部署不同分支的项目
+
+步骤：
+
+1. 首先在 Jenkins 项目选择 参数化构建过程（This project is parameterized），选 String 类型，名称为branch，默认值为master
+2. 在 Pipeline 脚本文件中，用 ${} 表达式来注入文件内容
+3. 创建一个分支
+4. 构建时输入此分支名称

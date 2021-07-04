@@ -8,7 +8,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<h1>这是 master 分支</h1>
 <br/>
 
 <h1>如果看到这里，说明持续集成成功啦</h1>
