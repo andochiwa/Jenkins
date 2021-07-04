@@ -312,5 +312,5 @@ Jenkins 内置4种构建触发器
 3. 定时构建（Build periodically）
 4. 轮询SCM（Poll SCM）
 
-> 触发远程构建
+
 
