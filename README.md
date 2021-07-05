@@ -357,3 +357,9 @@ post {
     }
 }
 ```
+
+# Jenkins + SpringCloud 微服务持续集成
+
+### 微服务持续集成流程
+
+<img src="img/7.png" alt="image-20210705210900351" style="zoom:150%;" />
