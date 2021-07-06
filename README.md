@@ -459,15 +459,15 @@ docker-compose restart	# 重新启动
 ### 上传镜像到 Harbor
 
 1. 给镜像打标签
-2. 推送镜像
+2. 推送镜像（登录到私有仓库）
 
 可能出现的问题
-
-* Docker 没有把 Harbor 加入到信任列表中
 
 ```bash
 http: server gave HTTP response to HTTPS client
 ```
+
+Docker 没有把 Harbor 加入到信任列表中
 
 编辑`/etc/docker/daemon.json`文件，如果没有就自行创建
 
@@ -475,3 +475,10 @@ http: server gave HTTP response to HTTPS client
 "insecure-registries": ["IP:PORT"]
 ```
 
+另外需要注意，tag的格式为`IP:PORT/REPOSITORY/name:version`
+
+### 从 Harbor 下载镜像
+
+1. 修改docker配置，把 Harbor加入到信任列表，操作同上
+2. 重启docker
+3. 先登录，再从 Harbor 下载镜像
