@@ -456,3 +456,22 @@ docker-compose restart	# 重新启动
 
 完成后即可访问，默认账号密码为: admin / Harbor12345
 
+### 上传镜像到 Harbor
+
+1. 给镜像打标签
+2. 推送镜像
+
+可能出现的问题
+
+* Docker 没有把 Harbor 加入到信任列表中
+
+```bash
+http: server gave HTTP response to HTTPS client
+```
+
+编辑`/etc/docker/daemon.json`文件，如果没有就自行创建
+
+```json
+"insecure-registries": ["IP:PORT"]
+```
+
