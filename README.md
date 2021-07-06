@@ -404,3 +404,55 @@ Docker 镜像是分层的，如果每次传输都是用全量文件显然不经�
 4. 良好的安全机制
 
 企业中的开发团队有很多不同的职位，对于不同的职位人员，分配不同的权限，具有更好的安全性
+
+### harbor 安装
+
+1. 先安装 Docker 并启动 Docker
+2. 安装 docker-compose
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.6/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+3. 下载 Harbor 压缩包（本次采用v1.10.8）
+
+https://github.com/goharbor/harbor/releases
+
+4. 上传到 Linux 并解压
+
+5. 修改 Harbor 的配置
+
+```bash
+vim harbor.yml
+```
+
+修改 hostname 和 port
+
+```yaml
+hostname: 192.168.0.11
+http:
+	port: 85
+```
+
+6. 安装 Harbor
+
+```bash
+./prepare
+./install.sh
+```
+
+7. 启动 Harbor
+
+```bash
+docker-compose up -d	# 启动
+docker-compose stop		# 停止
+docker-compose restart	# 重新启动
+```
+
+如果报错: The protocol is https but attribute_ssl_cert is not set
+
+把 harbor.yml 里的 https 相关内容注释掉即可
+
+完成后即可访问，默认账号密码为: admin / Harbor12345
+
