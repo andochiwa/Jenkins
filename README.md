@@ -363,3 +363,18 @@ post {
 ### 微服务持续集成流程
 
 <img src="img/7.png" alt="image-20210705210900351" style="zoom:150%;" />
+
+## 本地部署微服务
+
+部署 SpringCloud 微服务，首先需要导入插件
+
+```xml
+<plugin>
+	<groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+```
+
+这样才能保证 SpringBoot 项目打包时能够把依赖也打包进去
+
+然后直接运行 jar 包即可
