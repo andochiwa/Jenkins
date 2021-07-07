@@ -482,3 +482,19 @@ Docker 没有把 Harbor 加入到信任列表中
 1. 修改docker配置，把 Harbor加入到信任列表，操作同上
 2. 重启docker
 3. 先登录，再从 Harbor 下载镜像
+
+## 远程发送 shell 命令
+
+1. 安装`Publish Over SSH`插件
+2. 发送公钥文件到远程服务器
+
+```bash
+ssh-keygen -t rsa -b 4096 # 创建公钥，如果没有
+ssh-copy-id SERVER_IP # 发送公钥
+```
+
+3. 到系统设置，Publish Over SSH，设置 Path to key 为公钥文件位置
+4. 添加一台 SSH Servers
+5. 地址填写远程服务器的地址，username 填写产生私钥的用户，Remote Directory 填写 / 即可
+6. 到流水线语法生成器生成远程shell脚本
+
